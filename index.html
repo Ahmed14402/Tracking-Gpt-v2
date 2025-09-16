@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mes liens ChatGPT</title>
+</head>
+<body>
+  <h1>Discussions ChatGPT</h1>
+
+  <a href="https://chatgpt.com/share/68c07348-80e8-8004-aad2-efdb49142047" id="lien1" target="_blank">Discussion 1</a><br><br>
+  <a href="https://chatgpt.com/share/68b16f1c-49b8-800a-9b20-d7a5ac44035e" id="lien2" target="_blank">Discussion 2</a><br><br>
+
+  <!-- Formulaire caché -->
+  <form id="tracker" action="https://script.google.com/macros/s/AKfycbwdYpZq7mYXhi8-oKuuIPF57QPNKbwcEiOfJUjfkJSw5sBavi2-rUSjDXOvAo4t_0M/exec" method="POST" target="hiddenFrame">
+    <input type="hidden" name="lien" id="lienField">
+    <input type="hidden" name="url" id="urlField">
+  </form>
+  <iframe name="hiddenFrame" style="display:none;"></iframe>
+
+  <script>
+    function trackClick(nomLien, url) {
+      document.getElementById("lienField").value = nomLien;
+      document.getElementById("urlField").value = url;
+      document.getElementById("tracker").submit(); // 🔥 pas de fetch ici !
+    }
+
+    document.getElementById("lien1").addEventListener("click", function() {
+      trackClick("Discussion 1", "https://chatgpt.com/share/68c07348-80e8-8004-aad2-efdb49142047");
+    });
+
+    document.getElementById("lien2").addEventListener("click", function() {
+      trackClick("Discussion 2", "https://chatgpt.com/share/68b16f1c-49b8-800a-9b20-d7a5ac44035e");
+    });
+  </script>
+</body>
+</html>
